@@ -42,6 +42,20 @@
             android:layout_height="wrap_content"
             android:text="请登录" />
 
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="定位数据" />
+        <Button
+            android:id="@+id/btnshow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="点击"/>
+
+
     </LinearLayout>
 
 </RelativeLayout>
