@@ -19,73 +19,27 @@
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="用户名" />
-
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="密码" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="登录" />
-        <!-- wrap_content 包裹实际文本宽度
-    match_parent 当前控件铺满父类容器
-    fill_parent 当前控件铺满父类容器
--->
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="请登录" />
-
-        <EditText
-            android:id="@+id/editText2"
+        <!--
+            completionThreshold 输入多少字符时匹配
+        -->
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="定位数据" />
+            android:completionThreshold="3"
+            android:text="请输入你要搜索的关键词" />
 
-        <Button
-            android:id="@+id/btn1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_name" />
-
-        <ImageButton
-            android:id="@+id/imgBtn1"
+        <MultiAutoCompleteTextView
+            android:id="@+id/multiAutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/ic_launcher" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:hint="请输入你的收件人" />
 
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="#ff0000" />
-        <!-- 不同分辨率下的图片显示 -->
     </LinearLayout>
 
 </RelativeLayout>

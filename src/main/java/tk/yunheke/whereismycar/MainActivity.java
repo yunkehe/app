@@ -12,47 +12,42 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-    private Button loginButton;
-    private ImageButton imgBtn;
+public class MainActivity extends AppCompatActivity{
+    private AutoCompleteTextView acTextView;
+    private MultiAutoCompleteTextView mulTextView;
+    private String[] res = {"beijing1", "beijing2", "beijing3", "shanghai1", "shanghai2", "shenzhen1", "shenzhen2","shenzhen3"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        loginButton = (Button) findViewById(R.id.btn1);
-        imgBtn = (ImageButton) findViewById(R.id.imgBtn1);
-
         /**
-         * 通过匿名内部类实现监听
+         * 1. 初始化控件
+         * 2. 需要一个适配器
+         * 3. 初始化数据源--匹配文本框中输入的内容
+         * 4. 将adaptor与当前autocomplete控件绑定
          */
-        loginButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println("我的应用被点击了");
-            }
-        });
+        acTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
 
-        imgBtn.setOnClickListener(new MyOnClickListener() {
-            @Override
-            public void onClick(View view) {
-                super.onClick(view);
-                Toast.makeText(MainActivity.this, "imageButton被点击了", 1).show();
-            }
-        });
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, res);
+
+        acTextView.setAdapter(adapter);
+
+
+        mulTextView= (MultiAutoCompleteTextView) findViewById(R.id.multiAutoCompleteTextView);
+        mulTextView.setAdapter(adapter);
+        // 设置分隔符
+        mulTextView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+
     }
+
 }
 
-/**
- * OnClickListener是一个接口
- */
-class MyOnClickListener implements OnClickListener {
-    public void onClick(View view) {
-        Log.i("Tag", "父类的onclick事件");
-    }
-}
