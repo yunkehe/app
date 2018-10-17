@@ -23,24 +23,36 @@
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="篮球" />
+        <!--
+            completionThreshold 输入多少字符时匹配
+        -->
+        <!--<AutoCompleteTextView-->
+            <!--android:id="@+id/autoCompleteTextView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:completionThreshold="3"-->
+            <!--android:text="请输入你要搜索的关键词" />-->
 
-        <CheckBox
-            android:id="@+id/checkBox2"
+        <!--<MultiAutoCompleteTextView-->
+            <!--android:id="@+id/multiAutoCompleteTextView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="请输入你的收件人" />-->
+        <!-- textOn true textOff false 默认-->
+        <ToggleButton
+            android:id="@+id/toggleButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="足球" />
+            android:textOn="关"
+            android:textOff="开" />
 
-        <CheckBox
-            android:id="@+id/checkBox3"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="乒乓球" />
+            android:layout_height="match_parent"
+            android:background="@drawable/dark" />
+
+
     </LinearLayout>
 
 </RelativeLayout>

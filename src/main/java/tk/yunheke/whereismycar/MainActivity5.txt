@@ -1,0 +1,77 @@
+package tk.yunheke.whereismycar;
+
+import android.content.Context;
+import android.location.LocationProvider;
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.MultiAutoCompleteTextView;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
+    private AutoCompleteTextView acTextView;
+    private MultiAutoCompleteTextView mulTextView;
+    private String[] res = {"beijing1", "beijing2", "beijing3", "shanghai1", "shanghai2", "shenzhen1", "shenzhen2","shenzhen3"};
+
+    private ToggleButton tb;
+    private ImageView img;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        /**
+         * 1. 初始化控件
+         * 2. 需要一个适配器
+         * 3. 初始化数据源--匹配文本框中输入的内容
+         * 4. 将adaptor与当前autocomplete控件绑定
+         */
+//        acTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+//
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_1, res);
+//
+//        acTextView.setAdapter(adapter);
+//
+//
+//        mulTextView= (MultiAutoCompleteTextView) findViewById(R.id.multiAutoCompleteTextView);
+//        mulTextView.setAdapter(adapter);
+//        // 设置分隔符
+//        mulTextView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+
+        /**
+         * 开关灯泡
+         */
+        tb = (ToggleButton) findViewById(R.id.toggleButton);
+        img = (ImageView) findViewById(R.id.imageView);
+
+        tb.setOnCheckedChangeListener(this);
+    }
+
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        /**
+         * isChecked -- 代表被点击的控件的状态
+         */
+        // 当tb被点击的时候
+//        String a = String.valueOf(isChecked);
+//        Log.i("Tag", a);
+        img.setBackgroundResource(isChecked ? R.drawable.light : R.drawable.dark);
+    }
+
+}
+
