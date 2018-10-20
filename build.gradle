@@ -31,3 +31,20 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.+'
     implementation 'com.android.support:design:26.+'
 }
+
+
+buildscript{
+    repositories{
+        jcenter()
+        google()
+    }
+    dependencies{
+        classpath 'com.android.tools.build:gradle:3.1.1'
+    }
+}
+allprojects{
+    repositories{
+        jcenter()
+        google()
+    }
+}

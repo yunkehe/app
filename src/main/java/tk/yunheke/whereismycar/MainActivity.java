@@ -24,28 +24,14 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends AppCompatActivity {
     private RadioGroup rg;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        rg = (RadioGroup) findViewById(R.id.radioGroup);
-        rg.setOnCheckedChangeListener(this);
     }
 
-    @Override
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        switch (i) {
-            case R.id.radioButton2:
-                Log.i("Tag", "你当前选择了-是");
-                break;
-            case R.id.radioButton3:
-                Log.i("Tag", "你当前选择了-否");
-                break;
-        }
-    }
 }
 
