@@ -146,4 +146,25 @@
             android:layout_height="wrap_content"
             android:text="=" />
     </TableRow>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnOpen1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第一种方式启动" />
+        <Button
+            android:id="@+id/btnOpen2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第二种方式启动" />
+        <TextView
+            android:id="@+id/textViewShowData"
+            android:layout_width="wrap_content"
+            android:text="show data from demo activity"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </TableLayout>

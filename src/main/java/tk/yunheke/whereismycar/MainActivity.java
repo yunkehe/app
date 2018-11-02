@@ -22,13 +22,17 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
     private RadioGroup rg;
     final String TAG = "TAG";
-    public Button btn;
+    private Button btn1;
+    private Button btn2;
+    private Context Mcontext;
+    private TextView textView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,16 +40,45 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i(TAG, "MainActivity --> onCreate");
 
-        btn = (Button) findViewById(R.id.btnPlus);
-        btn.setOnClickListener(new OnClickListener() {
+        Mcontext = this;
+        btn1 = (Button) findViewById(R.id.btnOpen1);
+        btn2 = (Button) findViewById(R.id.btnOpen2);
+        textView = (TextView) findViewById(R.id.textViewShowData);
+
+        btn1.setOnClickListener(new OnClickListener() {
             @Override
 
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, DemoActivity.class);
+                Intent intent = new Intent(Mcontext, DemoActivity.class);
                 // 启动activity
-                MainActivity.this.startActivity(intent);
+                startActivity(intent);
             }
         });
+
+        btn2.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Mcontext, DemoActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
+
+    /**
+     * @param requestCode 请求的标识
+     * @param resultCode 第二个页面返回的标识
+     * @param data 第二个页面回传的数据
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1 && resultCode == 2){
+            String text = data.getStringExtra("data");
+            Log.i("TAG", text);
+
+            textView.setText(text);
+        }
     }
 
     @Override

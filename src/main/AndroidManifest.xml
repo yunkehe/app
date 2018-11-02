@@ -22,7 +22,6 @@
         <!-- activity 注册-->
         <activity
             android:name="tk.yunheke.whereismycar.DemoActivity"
-            android:theme="@style/Base.Theme.AppCompat.Dialog"
             android:label="checkbox">
         </activity>
 
